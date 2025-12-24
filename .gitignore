@@ -1,0 +1,11 @@
+# IDE files
+.idea/
+.vscode/
+
+# Netlify
+.netlify/
+
+# OS files
+.DS_Store
+Thumbs.db
+
