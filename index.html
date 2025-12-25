@@ -56,11 +56,11 @@
         }
 
         .fade-in-up {
-            animation: fadeInUp 0.5s ease-out forwards;
+            animation: fadeInUp 0.4s ease-out forwards;
         }
 
         .fade-in {
-            animation: fadeIn 0.5s ease-out forwards;
+            animation: fadeIn 0.4s ease-out forwards;
         }
 
         .hidden {
@@ -972,27 +972,27 @@
             // 1. Появление header
             setTimeout(() => {
                 header.classList.add('fade-in-up');
-            }, 100);
+            }, 50);
 
             // 2. Появление текста "SELECT JEWELRY TYPE" (после завершения анимации header)
             setTimeout(() => {
                 selectText.classList.add('fade-in-up');
-            }, 650); // 100ms (начало header) + 500ms (длительность анимации) + 50ms (небольшая пауза)
+            }, 450); // 50ms (начало header) + 400ms (длительность анимации)
 
             // 3. Появление карусели (после завершения анимации select text)
             setTimeout(() => {
                 carousel.classList.add('fade-in');
-            }, 1150); // 650ms (начало select text) + 500ms (длительность анимации)
+            }, 850); // 450ms (начало select text) + 400ms (длительность анимации)
 
             // 4. Появление названия категории (после завершения анимации карусели)
             setTimeout(() => {
                 categoryName.classList.add('fade-in-up');
-            }, 1650); // 1150ms (начало carousel) + 500ms (длительность анимации)
+            }, 1250); // 850ms (начало carousel) + 400ms (длительность анимации)
 
             // 5. Появление точек (после завершения анимации названия категории)
             setTimeout(() => {
                 dots.classList.add('fade-in-up');
-            }, 2150); // 1650ms (начало category name) + 500ms (длительность анимации)
+            }, 1650); // 1250ms (начало category name) + 400ms (длительность анимации)
         }
 
         // Инициализация
