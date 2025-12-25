@@ -972,10 +972,10 @@
                 header.classList.add('fade-in-up');
             }, 100);
 
-            // Появление текста "SELECT JEWELRY TYPE"
+            // Появление текста "SELECT JEWELRY TYPE" (после завершения анимации header)
             setTimeout(() => {
                 selectText.classList.add('fade-in-up');
-            }, 300);
+            }, 650); // 100ms (начало header) + 500ms (длительность анимации) + 50ms (небольшая пауза)
 
             // Появление карусели
             setTimeout(() => {
