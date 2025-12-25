@@ -56,11 +56,11 @@
         }
 
         .fade-in-up {
-            animation: fadeInUp 0.6s ease-in-out forwards;
+            animation: fadeInUp 0.5s ease-in-out forwards;
         }
 
         .fade-in {
-            animation: fadeIn 0.6s ease-in-out forwards;
+            animation: fadeIn 0.5s ease-in-out forwards;
         }
 
         .hidden {
@@ -972,27 +972,27 @@
             // 1. Появление логотипа
             setTimeout(() => {
                 logo.classList.add('fade-in-up');
-            }, 100);
+            }, 50);
 
             // 2. Появление названия "GOLDZEN" (после завершения анимации логотипа + небольшая пауза)
             setTimeout(() => {
                 appName.classList.add('fade-in-up');
-            }, 800); // 100ms (начало logo) + 600ms (длительность анимации) + 100ms (пауза)
+            }, 600); // 50ms (начало logo) + 500ms (длительность анимации) + 50ms (пауза)
 
             // 3. Появление текста "SELECT JEWELRY TYPE" (после завершения анимации названия + пауза)
             setTimeout(() => {
                 selectText.classList.add('fade-in-up');
-            }, 1500); // 800ms (начало app-name) + 600ms (длительность анимации) + 100ms (пауза)
+            }, 1150); // 600ms (начало app-name) + 500ms (длительность анимации) + 50ms (пауза)
 
             // 4. Появление карусели (после завершения анимации select text + пауза)
             setTimeout(() => {
                 carousel.classList.add('fade-in');
-            }, 2200); // 1500ms (начало select text) + 600ms (длительность анимации) + 100ms (пауза)
+            }, 1700); // 1150ms (начало select text) + 500ms (длительность анимации) + 50ms (пауза)
 
             // 5. Появление навигации (название категории + точки вместе) после завершения анимации карусели + пауза
             setTimeout(() => {
                 navigation.classList.add('fade-in-up');
-            }, 2900); // 2200ms (начало carousel) + 600ms (длительность анимации) + 100ms (пауза)
+            }, 2250); // 1700ms (начало carousel) + 500ms (длительность анимации) + 50ms (пауза)
         }
 
         // Инициализация
