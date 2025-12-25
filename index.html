@@ -34,12 +34,46 @@
             padding: 20px 0 30px 0;
         }
 
+        /* Анимации появления */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        .hidden {
+            opacity: 0;
+        }
+
         .header {
             display: flex;
             flex-direction: column;
             align-items: center;
             margin-top: 20px;
             z-index: 10;
+            opacity: 0;
         }
 
         .logo {
@@ -74,6 +108,7 @@
             margin: 20px 0;
             min-height: 0;
             margin-top: 20px;
+            opacity: 0;
         }
 
         .carousel-wrapper {
@@ -164,6 +199,7 @@
             margin-bottom: 10px;
             z-index: 10;
             position: relative;
+            opacity: 0;
         }
 
         .select-text {
@@ -184,6 +220,7 @@
             margin-bottom: 20px;
             z-index: 10;
             width: 100%;
+            opacity: 0;
         }
 
         .dots {
@@ -923,8 +960,43 @@
             }
         });
 
+        // Функция для последовательного появления элементов
+        function animateOnLoad() {
+            const header = document.querySelector('.header');
+            const selectText = document.querySelector('.select-text-container');
+            const carousel = document.querySelector('.carousel-container');
+            const navigation = document.querySelector('.navigation');
+
+            // Появление header
+            setTimeout(() => {
+                header.classList.add('fade-in-up');
+            }, 200);
+
+            // Появление текста "SELECT JEWELRY TYPE"
+            setTimeout(() => {
+                selectText.classList.add('fade-in-up');
+            }, 600);
+
+            // Появление карусели
+            setTimeout(() => {
+                carousel.classList.add('fade-in');
+            }, 1000);
+
+            // Появление навигации
+            setTimeout(() => {
+                navigation.classList.add('fade-in-up');
+            }, 1400);
+        }
+
         // Инициализация
         updateCarousel();
+        
+        // Запуск анимации при загрузке страницы
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', animateOnLoad);
+        } else {
+            animateOnLoad();
+        }
     </script>
 </body>
 </html>
