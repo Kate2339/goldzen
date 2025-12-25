@@ -221,6 +221,7 @@
             margin-bottom: 20px;
             z-index: 10;
             width: 100%;
+            opacity: 0;
         }
 
         .dots {
@@ -230,7 +231,6 @@
             justify-content: center;
             flex-wrap: wrap;
             width: 100%;
-            opacity: 0;
         }
 
         .dot {
@@ -266,7 +266,6 @@
             text-align: center;
             margin-bottom: 10px;
             z-index: 10;
-            opacity: 0;
         }
 
         .category-name {
@@ -968,8 +967,7 @@
             const appName = document.querySelector('.app-name');
             const selectText = document.querySelector('.select-text-container');
             const carousel = document.querySelector('.carousel-container');
-            const categoryName = document.querySelector('.category-name-container');
-            const dots = document.querySelector('.dots');
+            const navigation = document.querySelector('.navigation');
 
             // 1. Появление логотипа
             setTimeout(() => {
@@ -991,15 +989,10 @@
                 carousel.classList.add('fade-in');
             }, 2200); // 1500ms (начало select text) + 600ms (длительность анимации) + 100ms (пауза)
 
-            // 5. Появление названия категории (после завершения анимации карусели + пауза)
+            // 5. Появление навигации (название категории + точки вместе) после завершения анимации карусели + пауза
             setTimeout(() => {
-                categoryName.classList.add('fade-in-up');
+                navigation.classList.add('fade-in-up');
             }, 2900); // 2200ms (начало carousel) + 600ms (длительность анимации) + 100ms (пауза)
-
-            // 6. Появление точек (после завершения анимации названия категории + пауза)
-            setTimeout(() => {
-                dots.classList.add('fade-in-up');
-            }, 3600); // 2900ms (начало category name) + 600ms (длительность анимации) + 100ms (пауза)
         }
 
         // Инициализация
