@@ -34,6 +34,39 @@
             padding: 20px 0 30px 0;
         }
 
+        /* Анимации появления */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.5s ease-in-out forwards;
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out forwards;
+        }
+
+        .hidden {
+            opacity: 0;
+        }
+
         .header {
             display: flex;
             flex-direction: column;
@@ -46,6 +79,7 @@
             width: 160px;
             height: 160px;
             margin-bottom: 20px;
+            opacity: 0;
         }
 
         .logo img {
@@ -61,6 +95,7 @@
             color: #b48f4b;
             letter-spacing: 8px;
             text-transform: uppercase;
+            opacity: 0;
         }
 
         .carousel-container {
@@ -74,6 +109,7 @@
             margin: 20px 0;
             min-height: 0;
             margin-top: 20px;
+            opacity: 0;
         }
 
         .carousel-wrapper {
@@ -164,6 +200,7 @@
             margin-bottom: 10px;
             z-index: 10;
             position: relative;
+            opacity: 0;
         }
 
         .select-text {
@@ -184,6 +221,7 @@
             margin-bottom: 20px;
             z-index: 10;
             width: 100%;
+            opacity: 0;
         }
 
         .dots {
@@ -762,16 +800,16 @@
     <div class="carousel-container" id="carouselContainer">
         <div class="carousel-wrapper" id="carouselWrapper">
             <div class="carousel-item" data-index="0">
-                <img src="categories/ring.png" alt="Ring">
-            </div>
-            <div class="carousel-item" data-index="1">
                 <img src="categories/necklace.png" alt="Necklace">
             </div>
-            <div class="carousel-item" data-index="2">
+            <div class="carousel-item" data-index="1">
                 <img src="categories/bracelet.png" alt="Bracelet">
             </div>
-            <div class="carousel-item" data-index="3">
+            <div class="carousel-item" data-index="2">
                 <img src="categories/earings.png" alt="Earrings">
+            </div>
+            <div class="carousel-item" data-index="3">
+                <img src="categories/ring.png" alt="Ring">
             </div>
         </div>
         
@@ -779,7 +817,7 @@
 
     <div class="navigation">
         <div class="category-name-container">
-            <div class="category-name" id="categoryName">RING</div>
+            <div class="category-name" id="categoryName">NECKLACE</div>
         </div>
         <div class="dots" id="dots">
             <div class="dot active" data-index="0"></div>
@@ -795,7 +833,7 @@
         const categoryNameElement = document.getElementById('categoryName');
         const carouselContainer = document.getElementById('carouselContainer');
         
-        const categories = ['RING', 'NECKLACE', 'BRACELET', 'EARRINGS'];
+        const categories = ['NECKLACE', 'BRACELET', 'EARRINGS', 'RING'];
         let currentIndex = 0;
         let startX = 0;
         let currentX = 0;
@@ -923,8 +961,49 @@
             }
         });
 
+        // Функция для последовательного появления элементов
+        function animateOnLoad() {
+            const logo = document.querySelector('.logo');
+            const appName = document.querySelector('.app-name');
+            const selectText = document.querySelector('.select-text-container');
+            const carousel = document.querySelector('.carousel-container');
+            const navigation = document.querySelector('.navigation');
+
+            // 1. Появление логотипа
+            setTimeout(() => {
+                logo.classList.add('fade-in-up');
+            }, 50);
+
+            // 2. Появление названия "GOLDZEN" (после завершения анимации логотипа + небольшая пауза)
+            setTimeout(() => {
+                appName.classList.add('fade-in-up');
+            }, 600); // 50ms (начало logo) + 500ms (длительность анимации) + 50ms (пауза)
+
+            // 3. Появление текста "SELECT JEWELRY TYPE" (после завершения анимации названия + пауза)
+            setTimeout(() => {
+                selectText.classList.add('fade-in-up');
+            }, 1150); // 600ms (начало app-name) + 500ms (длительность анимации) + 50ms (пауза)
+
+            // 4. Появление карусели (после завершения анимации select text + пауза)
+            setTimeout(() => {
+                carousel.classList.add('fade-in');
+            }, 1700); // 1150ms (начало select text) + 500ms (длительность анимации) + 50ms (пауза)
+
+            // 5. Появление навигации (название категории + точки вместе) после завершения анимации карусели + пауза
+            setTimeout(() => {
+                navigation.classList.add('fade-in-up');
+            }, 2250); // 1700ms (начало carousel) + 500ms (длительность анимации) + 50ms (пауза)
+        }
+
         // Инициализация
         updateCarousel();
+        
+        // Запуск анимации при загрузке страницы
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', animateOnLoad);
+        } else {
+            animateOnLoad();
+        }
     </script>
 </body>
 </html>
