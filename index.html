@@ -220,7 +220,6 @@
             margin-bottom: 20px;
             z-index: 10;
             width: 100%;
-            opacity: 0;
         }
 
         .dots {
@@ -230,6 +229,7 @@
             justify-content: center;
             flex-wrap: wrap;
             width: 100%;
+            opacity: 0;
         }
 
         .dot {
@@ -265,6 +265,7 @@
             text-align: center;
             margin-bottom: 10px;
             z-index: 10;
+            opacity: 0;
         }
 
         .category-name {
@@ -965,27 +966,33 @@
             const header = document.querySelector('.header');
             const selectText = document.querySelector('.select-text-container');
             const carousel = document.querySelector('.carousel-container');
-            const navigation = document.querySelector('.navigation');
+            const categoryName = document.querySelector('.category-name-container');
+            const dots = document.querySelector('.dots');
 
-            // Появление header
+            // 1. Появление header
             setTimeout(() => {
                 header.classList.add('fade-in-up');
             }, 100);
 
-            // Появление текста "SELECT JEWELRY TYPE" (после завершения анимации header)
+            // 2. Появление текста "SELECT JEWELRY TYPE" (после завершения анимации header)
             setTimeout(() => {
                 selectText.classList.add('fade-in-up');
             }, 650); // 100ms (начало header) + 500ms (длительность анимации) + 50ms (небольшая пауза)
 
-            // Появление карусели
+            // 3. Появление карусели (после завершения анимации select text)
             setTimeout(() => {
                 carousel.classList.add('fade-in');
-            }, 500);
+            }, 1150); // 650ms (начало select text) + 500ms (длительность анимации)
 
-            // Появление навигации
+            // 4. Появление названия категории (после завершения анимации карусели)
             setTimeout(() => {
-                navigation.classList.add('fade-in-up');
-            }, 700);
+                categoryName.classList.add('fade-in-up');
+            }, 1650); // 1150ms (начало carousel) + 500ms (длительность анимации)
+
+            // 5. Появление точек (после завершения анимации названия категории)
+            setTimeout(() => {
+                dots.classList.add('fade-in-up');
+            }, 2150); // 1650ms (начало category name) + 500ms (длительность анимации)
         }
 
         // Инициализация
