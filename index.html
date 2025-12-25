@@ -56,11 +56,11 @@
         }
 
         .fade-in-up {
-            animation: fadeInUp 0.4s ease-out forwards;
+            animation: fadeInUp 0.3s ease-out forwards;
         }
 
         .fade-in {
-            animation: fadeIn 0.4s ease-out forwards;
+            animation: fadeIn 0.3s ease-out forwards;
         }
 
         .hidden {
@@ -979,27 +979,27 @@
             // 2. Появление названия "GOLDZEN" (после завершения анимации логотипа)
             setTimeout(() => {
                 appName.classList.add('fade-in-up');
-            }, 450); // 50ms (начало logo) + 400ms (длительность анимации)
+            }, 350); // 50ms (начало logo) + 300ms (длительность анимации)
 
             // 3. Появление текста "SELECT JEWELRY TYPE" (после завершения анимации названия)
             setTimeout(() => {
                 selectText.classList.add('fade-in-up');
-            }, 850); // 450ms (начало app-name) + 400ms (длительность анимации)
+            }, 650); // 350ms (начало app-name) + 300ms (длительность анимации)
 
             // 4. Появление карусели (после завершения анимации select text)
             setTimeout(() => {
                 carousel.classList.add('fade-in');
-            }, 1250); // 850ms (начало select text) + 400ms (длительность анимации)
+            }, 950); // 650ms (начало select text) + 300ms (длительность анимации)
 
             // 5. Появление названия категории (после завершения анимации карусели)
             setTimeout(() => {
                 categoryName.classList.add('fade-in-up');
-            }, 1650); // 1250ms (начало carousel) + 400ms (длительность анимации)
+            }, 1250); // 950ms (начало carousel) + 300ms (длительность анимации)
 
             // 6. Появление точек (после завершения анимации названия категории)
             setTimeout(() => {
                 dots.classList.add('fade-in-up');
-            }, 2050); // 1650ms (начало category name) + 400ms (длительность анимации)
+            }, 1550); // 1250ms (начало category name) + 300ms (длительность анимации)
         }
 
         // Инициализация
