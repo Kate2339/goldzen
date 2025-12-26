@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 <html lang="ru">
+<!-- Updated: Carousel order changed - Necklace first, Ring last -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <title>GOLDZEN - Select Jewelry</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -800,16 +804,16 @@
     <div class="carousel-container" id="carouselContainer">
         <div class="carousel-wrapper" id="carouselWrapper">
             <div class="carousel-item" data-index="0">
-                <img src="categories/ring.png" alt="Ring">
-            </div>
-            <div class="carousel-item" data-index="1">
                 <img src="categories/necklace.png" alt="Necklace">
             </div>
-            <div class="carousel-item" data-index="2">
+            <div class="carousel-item" data-index="1">
                 <img src="categories/bracelet.png" alt="Bracelet">
             </div>
-            <div class="carousel-item" data-index="3">
+            <div class="carousel-item" data-index="2">
                 <img src="categories/earings.png" alt="Earrings">
+            </div>
+            <div class="carousel-item" data-index="3">
+                <img src="categories/ring.png" alt="Ring">
             </div>
         </div>
         
@@ -817,7 +821,8 @@
 
     <div class="navigation">
         <div class="category-name-container">
-            <div class="category-name" id="categoryName">RING</div>
+            <div class="category-name" id="categoryName">NECKLACE</div>
+            <!-- Carousel order: Necklace(0), Bracelet(1), Earrings(2), Ring(3) -->
         </div>
         <div class="dots" id="dots">
             <div class="dot active" data-index="0"></div>
@@ -828,12 +833,13 @@
     </div>
 
     <script>
+        // Version: 2.0 - Necklace first, Ring last
         const carouselItems = document.querySelectorAll('.carousel-item');
         const dots = document.querySelectorAll('.dot');
         const categoryNameElement = document.getElementById('categoryName');
         const carouselContainer = document.getElementById('carouselContainer');
         
-        const categories = ['RING', 'NECKLACE', 'BRACELET', 'EARRINGS'];
+        const categories = ['NECKLACE', 'BRACELET', 'EARRINGS', 'RING'];
         let currentIndex = 0;
         let startX = 0;
         let currentX = 0;
